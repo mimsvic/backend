@@ -12,11 +12,6 @@ export default function Home() {
     const token = localStorage.getItem('token')
     const [professorSelecionado, setProfessorSelecionado] = useState(null)
     const [texto, setTexto] = useState('')
-    // const [ni, setNi] = useState('')
-    // const [nome, setNome] = useState('')
-    // const [email, setEmail] = useState('')
-    // const [cel, setCel] = useState('')
-    // const [ocup, setOcup] = useState('')
 
     useEffect(() => {
 
@@ -108,7 +103,6 @@ export default function Home() {
 
 
     const search = async (texto) => {
-        console.log("Texto: ", texto)
         try {
             const response = await axios.get(`http://127.0.0.1:8000/api/search/?search=${texto}`,
                 {
@@ -117,7 +111,6 @@ export default function Home() {
                     }
                 }
             )
-            console.log("Teste: ", response.data[0])
             setProfessorSelecionado(response.data[0])
         } catch (error) {
             console.error(error)
